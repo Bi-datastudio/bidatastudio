@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bi DataStudio{% endblock %}</title>
+    
+    <!-- CARGAR STATICFILES CORRECTAMENTE -->
+    {% load static %}
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+
+</head>
+<script>
+    // Forzar animación del header
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.querySelector('header');
+        
+        // Aplicar estilos directamente
+        header.style.background = 'linear-gradient(-45deg, #0279b4, #3b82f6, #8b5cf6, #cd9cff, #250060, #0279b4)';
+        header.style.backgroundSize = '400% 400%';
+        header.style.animation = 'gradientShift 15s ease infinite';
+        
+        // Crear la animación si no existe
+        if (!document.getElementById('gradient-animation')) {
+            const style = document.createElement('style');
+            style.id = 'gradient-animation';
+            style.textContent = `
+                @keyframes gradientShift {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        console.log('✅ Animación aplicada al header');
+    });
+</script>
+
+<body class="debug">
+    <header class="debug">
+        <div class="nav-container">
+            <div class="brand">
+                <h1>Bi DataStudio</h1>
+                <p>Datos confiables, decisiones claras</p>
+            </div>
+            <nav>
+                <a href="{% url 'home' %}">Inicio</a>
+                <a href="{% url 'services' %}">Servicios</a>
+                <a href="{% url 'contact' %}">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- El contenido específico de cada página irá aquí -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bi DataStudio. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

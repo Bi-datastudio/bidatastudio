@@ -1,0 +1,111 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+Inicio | Bi DataStudio
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>Transformamos datos en decisiones claras</h2>
+
+    <p>
+        En Bi DataStudio ayudamos a empresas y profesionales
+        a convertir información en reportes de Business Intelligence
+        útiles, confiables y accionables.
+    </p>
+
+    <div class="hero-actions">
+        <a href="{% url 'services' %}" class="btn primary">
+            Nuestros servicios
+        </a>
+        
+        <a href="{% url 'contact' %}" class="btn secondary">
+            Hablemos
+        </a>
+    </div>
+</section>
+
+<!-- Sección de servicios destacados -->
+<section class="services-preview">
+    <h2 class="section-title">Soluciones que ofrecemos</h2>
+    <p class="section-subtitle">
+        Herramientas y estrategias para potenciar tu toma de decisiones
+    </p>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 3v18h18"/>
+                    <path d="M3 9h18"/>
+                    <path d="M3 15h18"/>
+                    <path d="M9 3v18"/>
+                    <path d="M15 3v18"/>
+                </svg>
+            </div>
+            <h3>Dashboards de BI</h3>
+            <p>Visualizaciones claras y accionables en Power BI y Tableau.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                    <polyline points="16 6 12 2 8 6"/>
+                    <line x1="12" y1="2" x2="12" y2="15"/>
+                    <path d="M20 14h2"/>
+                    <path d="M2 14h2"/>
+                </svg>
+            </div>
+            <h3>Automatización</h3>
+            <p>Automatizamos procesos para reducir tiempos y errores.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+            </div>
+            <h3>Calidad de datos</h3>
+            <p>Estructuramos datos confiables para decisiones seguras.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h3>¿Listo para transformar tus datos?</h3>
+        <p>Más de 50 empresas ya confían en nuestras soluciones.</p>
+        <a href="{% url 'contact' %}" class="btn primary">
+            Solicitar consulta gratuita
+        </a>
+    </div>
+</section>
+
+<!-- Sección de confianza -->
+<div class="trust-badges">
+    <div class="badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0279b4" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        <span>Resultados garantizados</span>
+    </div>
+    <div class="badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0279b4" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Seguridad de datos</span>
+    </div>
+    <div class="badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0279b4" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Entregas a tiempo</span>
+    </div>
+</div>
+{% endblock %}

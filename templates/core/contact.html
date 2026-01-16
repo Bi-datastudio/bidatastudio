@@ -1,0 +1,341 @@
+{% extends "core/base.html" %}
+
+{% block title %}Contacto | Bi DataStudio{% endblock %}
+
+{% block content %}
+
+<section class="contact-section">
+    <div class="contact-container">
+        <!-- Encabezado -->
+        <div class="contact-header">
+            <h2 class="section-title">Contáctanos</h2>
+            <p class="section-subtitle">
+                Conectamos datos, personas y decisiones en tres continentes.
+            </p>
+        </div>
+
+        <!-- Mensajes de Django -->
+        {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Formulario simplificado -->
+        <div class="contact-form-simple">
+            <div class="form-card">
+                <h3 class="form-title">¿Listo para transformar tus datos?</h3>
+                <p class="form-subtitle">Envíanos un mensaje y te responderemos desde la oficina más cercana.</p>
+                
+                <form method="post" class="contact-form">
+                    {% csrf_token %}
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                            {{ form.name }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                        {{ form.message }}
+                    </div>
+
+                    <button type="submit" class="btn primary full-width">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                        Enviar mensaje
+                    </button>
+                </form>
+            </div>
+
+            <!-- Información de contacto simple -->
+            <div class="contact-info-simple">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
+                        </svg>
+                    </div>
+                    <h4>Email</h4>
+                    <p>contacto@bidatastudio.com</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/>
+                        </svg>
+                    </div>
+                    <h4>Teléfono</h4>
+                    <p>+57 300 123 4567</p>
+                    <p class="small">(Disponible en español, portugués e inglés)</p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                        </svg>
+                    </div>
+                    <h4>Horario de atención</h4>
+                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                    <p class="small">Respuesta por email en 24h</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección del equipo -->
+<section class="team-section">
+    <div class="container">
+        <div class="team-header">
+            <h2 class="section-title">Nuestro equipo</h2>
+            <p class="section-subtitle">
+                Expertos en datos con experiencia internacional, trabajando juntos para ofrecerte las mejores soluciones del mercado.
+            </p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Miembro 1 -->
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="member-photo">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #0279b4, #1a56db);">
+                            <span>AM</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sandra Paola Botero</h3>
+                        <p class="position">CEO & Data Strategist</p>
+                        <div class="location-tag">
+                            <span class="flag">🇨🇴</span>
+                            <span>Bogotá, Colombia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card-body">
+                    <p class="member-bio">
+                        12+ años en Business Intelligence. Ex-directora de Analytics en multinacional bancaria.
+                        Especialista en transformación digital y estrategia de datos.
+                    </p>
+                    <div class="expertise">
+                        <span class="expertise-tag">Power BI</span>
+                        <span class="expertise-tag">Estrategia</span>
+                        <span class="expertise-tag">Governanza</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 2 -->
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="member-photo">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #009B3A, #FEDF00);">
+                            <span>CS</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Lina Torres</h3>
+                        <p class="position">CEO & Data Engineer</p>
+                        <div class="location-tag">
+                            <span class="flag">🇧🇷</span>
+                            <span>Curitiba, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card-body">
+                    <p class="member-bio">
+                        Ingeniero de datos con 10 años de experiencia. Especializado en arquitecturas cloud (AWS, Azure)
+                        y pipelines de datos automatizados.
+                    </p>
+                    <div class="expertise">
+                        <span class="expertise-tag">Python</span>
+                        <span class="expertise-tag">AWS</span>
+                        <span class="expertise-tag">ETL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 3 -->
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="member-photo">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #AA151B, #F1BF00);">
+                            <span>LG</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Laura Gómez</h3>
+                        <p class="position">Data Visualization Lead</p>
+                        <div class="location-tag">
+                            <span class="flag">🇪🇸</span>
+                            <span>Valencia, España</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card-body">
+                    <p class="member-bio">
+                        Diseñadora UX/UI convertida en especialista de visualización de datos. 8 años creando dashboards
+                        que cuentan historias con claridad y impacto.
+                    </p>
+                    <div class="expertise">
+                        <span class="expertise-tag">Tableau</span>
+                        <span class="expertise-tag">UX/UI</span>
+                        <span class="expertise-tag">Storytelling</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 4 -->
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="member-photo">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">
+                            <span>MR</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Miguel Ramírez</h3>
+                        <p class="position">Data Analyst Senior</p>
+                        <div class="location-tag">
+                            <span class="flag">🇨🇴</span>
+                            <span>Bogotá, Colombia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card-body">
+                    <p class="member-bio">
+                        Estadístico con maestría en Analytics. 7 años en consultoría de datos para retail y manufactura.
+                        Especialista en modelado predictivo y KPIs.
+                    </p>
+                    <div class="expertise">
+                        <span class="expertise-tag">R</span>
+                        <span class="expertise-tag">SQL</span>
+                        <span class="expertise-tag">Estadística</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 5 -->
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="member-photo">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #059669, #10b981);">
+                            <span>SO</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sofia Oliveira</h3>
+                        <p class="position">Business Intelligence Developer</p>
+                        <div class="location-tag">
+                            <span class="flag">🇧🇷</span>
+                            <span>Curitiba, Brasil</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card-body">
+                    <p class="member-bio">
+                        Desarrolladora BI con 6 años de experiencia. Certificada en Microsoft Power Platform.
+                        Especialista en automatización de reportes y DAX avanzado.
+                    </p>
+                    <div class="expertise">
+                        <span class="expertise-tag">DAX</span>
+                        <span class="expertise-tag">Power Apps</span>
+                        <span class="expertise-tag">Azure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de ubicaciones globales compacta -->
+<div class="global-section-compact">
+    <div class="container">
+        <div class="global-header-compact">
+            <h2 class="section-title">Ubicaciones globales</h2>
+            <p class="section-subtitle">
+                Trabajamos en tres husos horarios para ofrecerte soporte continuo.
+            </p>
+        </div>
+
+        <div class="global-locations-compact">
+            <div class="location-cards-compact">
+                <!-- Bogotá -->
+                <div class="location-card-compact">
+                    <div class="location-header-compact">
+                        <div class="country-flag-compact">🇨🇴</div>
+                        <div>
+                            <h3>Bogotá</h3>
+                            <p class="location-subtitle-compact">Colombia • GMT-5</p>
+                        </div>
+                    </div>
+                    <div class="location-details-compact">
+                        <p>Carrera 7 # 123-45</p>
+                        <p>+57 300 123 4567</p>
+                    </div>
+                </div>
+
+                <!-- Curitiba -->
+                <div class="location-card-compact">
+                    <div class="location-header-compact">
+                        <div class="country-flag-compact">🇧🇷</div>
+                        <div>
+                            <h3>Curitiba</h3>
+                            <p class="location-subtitle-compact">Brasil • GMT-3</p>
+                        </div>
+                    </div>
+                    <div class="location-details-compact">
+                        <p>Rua das Flores, 1000</p>
+                        <p>+55 41 99999-9999</p>
+                    </div>
+                </div>
+
+                <!-- Valencia -->
+                <div class="location-card-compact">
+                    <div class="location-header-compact">
+                        <div class="country-flag-compact">🇪🇸</div>
+                        <div>
+                            <h3>Valencia</h3>
+                            <p class="location-subtitle-compact">España • GMT+1</p>
+                        </div>
+                    </div>
+                    <div class="location-details-compact">
+                        <p>Calle Colón, 45</p>
+                        <p>+34 622 123 456</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa minimalista -->
+            <div class="simple-map-compact">
+                <div class="map-points-compact">
+                    <div class="map-point-compact point-colombia-compact"></div>
+                    <div class="map-point-compact point-brazil-compact"></div>
+                    <div class="map-point-compact point-spain-compact"></div>
+                </div>
+                <div class="map-labels-compact">
+                    <span>🇨🇴 Bogotá</span>
+                    <span>🇧🇷 Curitiba</span>
+                    <span>🇪🇸 Valencia</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
